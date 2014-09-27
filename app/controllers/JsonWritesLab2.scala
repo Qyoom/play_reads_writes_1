@@ -3,11 +3,20 @@ package controllers
 import models.Resident
 import models.Place
 import models.Location
-import models.WatershipWrites1._
-
+import models.PopulationWrites1._
 import play.api.libs.json.Json
+import play.api._
+import play.api.mvc._
 
-object JsonWritesLab2 {
+object JsonWritesLab2 extends Controller {
+    
+    def index = Action {
+		Ok("JsonWritesLab2 index!")
+	}
+    
+    def defaultPopulation = Action { implicit request =>
+        Ok(watershipJson)
+    }
     
 	val waterShip = Place(
 		"Watership Down",

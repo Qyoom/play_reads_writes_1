@@ -3,7 +3,7 @@ package models
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
-object WatershipWrites1 {
+object PopulationWrites1 {
 
 	implicit val locationWrites: Writes[Location] = (
 		(JsPath \ "lat").write[Double] and

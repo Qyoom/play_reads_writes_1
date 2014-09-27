@@ -3,7 +3,7 @@ package models
 import play.api.libs.json.Writes
 import play.api.libs.json.Json
 
-object WatershipWrites2 {
+object PopulationWrites2 {
 	implicit val locationWrites = new Writes[Location] {
 	    def writes(location: Location) = Json.obj(
 	        "lat" -> location.lat,

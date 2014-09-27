@@ -3,6 +3,13 @@
 # ~~~~
 
 # Home page
+GET		/test1							controllers.JsonWritesLab1.index
+GET		/test2							controllers.JsonWritesLab2.index
+GET		/defaultUserTest					controllers.JsonWritesLab1.defaultUser
+GET		/defaultPopTest					controllers.JsonWritesLab2.defaultPopulation
+
+# NIX
+# GET     /                           	controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

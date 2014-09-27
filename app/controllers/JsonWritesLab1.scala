@@ -15,13 +15,17 @@ import play.api.libs.json.Json
 
 import models.User
 import models._
-import models.WatershipWrites2._
+import models.PopulationWrites2._
 import models.UserWrites._
 
 object JsonWritesLab1 extends Controller {
-
+    
 	def index = Action {
-		Ok("")
+		Ok("JsonWritesLab1 index!")
+	}
+
+	def defaultUser = Action { implicit request =>
+		Ok(userJson3)
 	}
 	
 	/********** USER *******************************/
