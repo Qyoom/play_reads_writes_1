@@ -15,7 +15,7 @@ import play.api.libs.json.Json
 
 import models.User
 import models._
-import models.PopulationWrites2._
+import models.PopulationWrites1._
 import models.UserWrites._
 
 object JsonWritesLab1 extends Controller {
@@ -52,6 +52,7 @@ object JsonWritesLab1 extends Controller {
 		)
 	)
 	
+	// Uses PopulationWrites1
 	val watershipJson = Json.toJson(waterShip)
 }
 

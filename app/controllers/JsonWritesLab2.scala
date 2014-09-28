@@ -3,7 +3,7 @@ package controllers
 import models.Resident
 import models.Place
 import models.Location
-import models.PopulationWrites1._
+import models.PopulationWrites2._
 import play.api.libs.json.Json
 import play.api._
 import play.api.mvc._
@@ -27,6 +27,6 @@ object JsonWritesLab2 extends Controller {
 		)
 	)
 	
-	// Using PopulationWrites1
+	// Using PopulationWrites2
 	val watershipJson = Json.toJson(waterShip)
 }
