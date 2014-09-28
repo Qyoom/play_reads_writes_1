@@ -7,7 +7,7 @@ object PopulationWrites2 {
 	implicit val locationWrites = new Writes[Location] {
 	    def writes(location: Location) = Json.obj(
 	        "lat" -> location.lat,
-	        "lon" -> location.lon
+	        "lon" -> location.long
 	    )
 	}
 	

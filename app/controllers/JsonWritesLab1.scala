@@ -16,6 +16,7 @@ import play.api.libs.json.Json
 import models.User
 import models._
 import models.PopulationWrites1._
+import models.PopulationReads1._
 import models.UserWrites._
 
 /**
@@ -58,10 +59,12 @@ object JsonWritesLab1 extends Controller {
 	
 	/*********** POPULATION *************************/
 	
-	def defaultPopulation = Action { implicit request =>
-        Ok(watershipJson)
+	// Producing Json for response with Writes[T]
+	def getDefaultPopulation = Action { implicit request =>
+        Ok(watershipJson) // Returning Json
     }
 	
+	// Model
 	val waterShip = Place(
 		"Watership Down",
 		Location(51.235685, -1.309197),
@@ -73,6 +76,8 @@ object JsonWritesLab1 extends Controller {
 	
 	// Uses PopulationWrites1
 	val watershipJson = Json.toJson(waterShip)
+	
+	// Consuming Json from response with Reads[T]
 }
 
 

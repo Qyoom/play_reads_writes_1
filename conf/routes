@@ -7,11 +7,8 @@ GET		/test1							controllers.JsonWritesLab1.index
 GET		/test2							controllers.JsonWritesLab2.index
 GET		/defaultUserTest1				controllers.JsonWritesLab1.defaultUser
 #GET		/defaultUserTest2				controllers.JsonWritesLab2.defaultUser
-GET		/defaultPopTest1					controllers.JsonWritesLab1.defaultPopulation
-GET		/defaultPopTest2					controllers.JsonWritesLab2.defaultPopulation
-
-# NIX
-# GET     /                           	controllers.Application.index
+GET		/defaultPopTest1					controllers.JsonWritesLab1.getDefaultPopulation
+GET		/defaultPopTest2					controllers.JsonWritesLab2.getDefaultPopulation
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

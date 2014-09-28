@@ -36,7 +36,7 @@ object JsonWritesLab2 extends Controller {
 	*/
 	/*********** POPULATION *************************/
     
-    def defaultPopulation = Action { implicit request =>
+    def getDefaultPopulation = Action { implicit request =>
         Ok(watershipJson)
     }
     
