@@ -27,5 +27,6 @@ object JsonWritesLab2 extends Controller {
 		)
 	)
 	
+	// Using PopulationWrites1
 	val watershipJson = Json.toJson(waterShip)
 }
