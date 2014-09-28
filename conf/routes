@@ -5,7 +5,8 @@
 # Home page
 GET		/test1							controllers.JsonWritesLab1.index
 GET		/test2							controllers.JsonWritesLab2.index
-GET		/defaultUserTest					controllers.JsonWritesLab1.defaultUser
+GET		/defaultUserTest1				controllers.JsonWritesLab1.defaultUser
+GET		/defaultUserTest2				controllers.JsonWritesLab2.defaultUser
 GET		/defaultPopTest1					controllers.JsonWritesLab1.defaultPopulation
 GET		/defaultPopTest2					controllers.JsonWritesLab2.defaultPopulation
 

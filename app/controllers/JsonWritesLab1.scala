@@ -37,7 +37,7 @@ object JsonWritesLab1 extends Controller {
 	// Using UserWrites
 	val userJson3 = Json.toJson(user3)
 	
-	/*********** WATERSHIP *************************/
+	/*********** POPULATION *************************/
 	
 	def defaultPopulation = Action { implicit request =>
         Ok(watershipJson)
