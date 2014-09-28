@@ -22,7 +22,7 @@ import models.UserWrites._
 /**
  * Writing to Json from model
  */
-object JsonWritesLab1 extends Controller {
+object JsonReadsWritesLab1 extends Controller {
     
 	def index = Action {
 		Ok("JsonWritesLab1 index!")
@@ -82,6 +82,14 @@ object JsonWritesLab1 extends Controller {
 	watershipModel match {
 	    case s:JsSuccess[Place] => println("watershipModel: " + s)
 	    case e:JsError => println("Errors: " + JsError.toFlatJson(e).toString)
+	}
+	
+	def putPlace = Action { implicit request =>
+	    request.body.asJson.map { json =>
+	    		Ok
+	    }.getOrElse {
+			BadRequest("Expecting Json data")
+		}
 	}
 }
 

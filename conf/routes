@@ -2,13 +2,17 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET		/test1							controllers.JsonWritesLab1.index
-GET		/test2							controllers.JsonWritesLab2.index
-GET		/defaultUserTest1				controllers.JsonWritesLab1.defaultUser
-#GET		/defaultUserTest2				controllers.JsonWritesLab2.defaultUser
-GET		/defaultPopTest1					controllers.JsonWritesLab1.getDefaultPopulation
-GET		/defaultPopTest2					controllers.JsonWritesLab2.getDefaultPopulation
+# Testing implicit Reads[T] and Writes[T]
+GET		/test1					controllers.JsonReadsWritesLab1.index
+GET		/test2					controllers.JsonWritesLab2.index
+GET		/defaultUserTest1		controllers.JsonReadsWritesLab1.defaultUser
+#GET		/defaultUserTest2		controllers.JsonWritesLab2.defaultUser
+GET		/defaultPopTest1			controllers.JsonReadsWritesLab1.getDefaultPopulation
+GET		/defaultPopTest2			controllers.JsonWritesLab2.getDefaultPopulation
+
+GET		/listPlaces				controllers.JsonHttpLab3.listPlaces
+
+POST		/putPlace					controllers.JsonReadsWritesLab1.putPlace
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
