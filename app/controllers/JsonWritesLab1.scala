@@ -23,13 +23,13 @@ object JsonWritesLab1 extends Controller {
 	def index = Action {
 		Ok("JsonWritesLab1 index!")
 	}
+	
+	/********** USER *******************************/
 
 	def defaultUser = Action { implicit request =>
 		Ok(userJson3)
 	}
-	
-	/********** USER *******************************/
-	
+		
 	val user1 = User(1, "Sam Spade", List())
 	val user2 = User(2, "Gloria Nightengale", List(user1))
 	val user3 = User(3, "Kit Carson", List(user1, user2))
@@ -38,6 +38,10 @@ object JsonWritesLab1 extends Controller {
 	val userJson3 = Json.toJson(user3)
 	
 	/*********** WATERSHIP *************************/
+	
+	def defaultPopulation = Action { implicit request =>
+        Ok(watershipJson)
+    }
 	
 	val waterShip = Place(
 		"Watership Down",
