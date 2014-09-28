@@ -83,14 +83,6 @@ object JsonReadsWritesLab1 extends Controller {
 	    case s:JsSuccess[Place] => println("watershipModel: " + s)
 	    case e:JsError => println("Errors: " + JsError.toFlatJson(e).toString)
 	}
-	
-	def putPlace = Action { implicit request =>
-	    request.body.asJson.map { json =>
-	    		Ok
-	    }.getOrElse {
-			BadRequest("Expecting Json data")
-		}
-	}
 }
 
 

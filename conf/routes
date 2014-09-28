@@ -10,9 +10,8 @@ GET		/defaultUserTest1		controllers.JsonReadsWritesLab1.defaultUser
 GET		/defaultPopTest1			controllers.JsonReadsWritesLab1.getDefaultPopulation
 GET		/defaultPopTest2			controllers.JsonWritesLab2.getDefaultPopulation
 
-GET		/listPlaces				controllers.JsonHttpLab3.listPlaces
-
-POST		/putPlace					controllers.JsonReadsWritesLab1.putPlace
+GET		/places					controllers.JsonHttpLab3.listPlaces
+POST		/places					controllers.JsonHttpLab3.savePlace
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
