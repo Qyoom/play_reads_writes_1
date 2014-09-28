@@ -11,14 +11,17 @@ import models.PopulationWrites2._
 import models.User
 import models.UserWrites2._
 
+/**
+ * Writing to Json from model
+ */
 object JsonWritesLab2 extends Controller {
     
     def index = Action {
 		Ok("JsonWritesLab2 index!")
 	}
     
-    /********** USER *******************************/
-
+    /********** UserWrites2 DOES NOT WORK *************/
+    /*
 	def defaultUser = Action { implicit request =>
 		Ok(userJson3)
 	}
@@ -30,7 +33,7 @@ object JsonWritesLab2 extends Controller {
 	// Using UserWrites2
 	// THIS DOES NOT WORK, probably due to recursive nature of User.friends
 	val userJson3 = Json.toJson(user3)
-	
+	*/
 	/*********** POPULATION *************************/
     
     def defaultPopulation = Action { implicit request =>
@@ -49,3 +52,5 @@ object JsonWritesLab2 extends Controller {
 	// Using PopulationWrites2
 	val watershipJson = Json.toJson(waterShip)
 }
+
+

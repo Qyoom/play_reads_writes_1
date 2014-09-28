@@ -18,6 +18,9 @@ import models._
 import models.PopulationWrites1._
 import models.UserWrites._
 
+/**
+ * Writing to Json from model
+ */
 object JsonWritesLab1 extends Controller {
     
 	def index = Action {
@@ -36,6 +39,22 @@ object JsonWritesLab1 extends Controller {
 	
 	// Using UserWrites
 	val userJson3 = Json.toJson(user3)
+	
+	/* Json path navigation and utilities */
+	println("JsonWritesLab1 USER name: " + userJson3 \ "name")
+	println("id: " + userJson3 \ "id")
+	println("friends: " + userJson3 \ "friends")
+	// \\ is not really recursive, it doesn't understand nested relationships
+	println("friends and friends of friends: " + userJson3 \\ "friends")
+	println("All names in this tree: " + userJson3 \\ "name")
+	val bestFriend = (userJson3 \ "friends")(0)
+	println("Best friend: " + bestFriend)
+	val secondBestFriend = (userJson3 \ "friends")(1)
+	println("Second best friend: " + secondBestFriend)
+	
+	println(userJson3)
+	println(Json.stringify(userJson3))
+	println(Json.prettyPrint(userJson3))
 	
 	/*********** POPULATION *************************/
 	

@@ -1,8 +1,8 @@
 package lab
 
-object json_lab_1 {
+import play.api.libs.json._
 
-    import play.api.libs.json._
+object json_lab_1 {
 
     // Json.parse
 	val json1: JsValue = Json.parse("""
@@ -71,6 +71,38 @@ object json_lab_1 {
 	// Json.toJson(Seq())
 	val jsonArrayOfInts = Json.toJson(Seq(1, 2, 3, 4))
 	val jsonArrayOfStrings = Json.toJson(List("Fiver", "Bigwig"))
+	
+	// implicit Reads[T]
+	// As with Writes, the JSON API provides Reads for basic types.
+	val name = (json3 \ "name").as[String] // throws a JsResultException if the path is not found or the conversion is not possible
+    val names = (json3 \\ "name").map(_.as[String])
+    // safer
+    val nameOption = (json3 \ "name").asOpt[String]
+    val bogusOption = (json3 \ "bogus").asOpt[String] // no exception, but any error information is lost
+    
+    // implicit Reads with validation
+    val validatedName = (json3 \ "name").validate[String]
+	val nameResult:String = validatedName match {
+	    case s:JsSuccess[String] => s.toString
+	    case e:JsError => JsError.toFlatJson(e).toString
+	}
+	// Fallback value
+	val nameResult2:String = (json3 \ "name").validate[String].getOrElse("undefined")
+	// map
+	val upper = nameResult.map(_.toUpper)
+
+	// fold DOES NOT WORK!!!
+	/*val nameOption2: Option[String] = nameOption.fold(
+		invalid = {
+			fieldErrors => fieldErrors.foreach(x => {
+				println("field: " + x._1 + ", errors: " + x._2)
+			})
+			None
+		},
+		valid = { 
+			name => Some(name)
+		}
+	)*/
 }
 
 
