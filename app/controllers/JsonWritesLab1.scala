@@ -64,7 +64,7 @@ object JsonWritesLab1 extends Controller {
         Ok(watershipJson) // Returning Json
     }
 	
-	// Model
+	// Model instance
 	val waterShip = Place(
 		"Watership Down",
 		Location(51.235685, -1.309197),
@@ -77,7 +77,12 @@ object JsonWritesLab1 extends Controller {
 	// Uses PopulationWrites1
 	val watershipJson = Json.toJson(waterShip)
 	
-	// Consuming Json from response with Reads[T]
+	// Consuming Json to produce model with PopulationReads1
+	val watershipModel = watershipJson.validate[Place]
+	watershipModel match {
+	    case s:JsSuccess[Place] => println("watershipModel: " + s)
+	    case e:JsError => println("Errors: " + JsError.toFlatJson(e).toString)
+	}
 }
 
 
