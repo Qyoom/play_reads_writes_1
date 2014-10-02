@@ -3,6 +3,7 @@ package models
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
+// Writes to Json from Scala (model)
 object PopulationWrites1 {
 
 	implicit val locationWrites: Writes[Location] = (
@@ -23,6 +24,7 @@ object PopulationWrites1 {
 	)(unlift(Place.unapply))
 }
 
+// Reads from Json to produce Scala (model)
 object PopulationReads1 {
 	
 	implicit val locationReads: Reads[Location] = (
